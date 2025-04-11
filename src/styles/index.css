@@ -1,11 +1,84 @@
-/* 
+.container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    height: 360px;
+    width: 300px;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.Title {
+    justify-content: center;
+    display: flex;
+    margin-top: -40px;
+    font-family: "Poiret One";
+    color:pink;
+}
 
-*/
+.TodoList {
+    height: 200px;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control {
+    border: 1px solid rgb(222, 226, 230);
+    border-radius: 0;
+    font-family: "Poiret One";
+    font-weight: 550;
+    
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .CustomInput {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid rgb(222, 226, 230);
+    font-size: 16px;           
+    line-height: 20px;        
+    box-sizing: border-box;  
+    height: 30px; 
+    
+  }
+  
+  .CustomInput::placeholder {
+    font-size: 16px;          
+    color: #888;              
+    line-height: 20px;        
+    padding: 0;
+    margin: 0;  
+    border: none;          
+  }
+
+  .CustomInput:focus {
+    outline: none;
+  }
+
+.CustomButton i {
+    visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.CustomButton:hover i {
+    visibility: visible;
+    opacity: 1;
+    font-size: 20px;
+    color: rgb(168, 171, 175);
+}
+
+ul {
+    padding: 0;
+    margin: 0; 
+  }
+  
+li {
+    border-bottom: 1px solid #ddd !important;
+  }
+

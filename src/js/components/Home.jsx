@@ -1,26 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
+	const [input, setInput] = useState("");
+	const [tareas, setTareas] = useState([]);
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+	const handleKeyDown = (e) => {
+		if (e.key == "Enter" && input && !tareas.includes(input)) {
+			setTareas([...tareas, input])
+			setInput("")
+		}
+	}
+
+	const handleDelete = (tarea) => {
+		setTareas(tareas.filter((item) => item != tarea))
+	}
+
+	return (
+		<div className="container">
+			<div className="TodoList">
+				<div className="Title"><h1>ToDo's</h1></div>
+				<div className="form-control">
+					<input type="text" className="CustomInput" placeholder="What needs to be done?" onChange={(e) => setInput(e.target.value)} value={input} onKeyDown={(e) => handleKeyDown(e)} />
+					{/*<button onClick={handleClick}>Send</button>*/}
+					<ul>
+						{tareas.map((tarea, index) => (
+							<li key={index} className="d-flex justify-content-between align-items-center">
+								<span>{tarea}</span>
+								<button className="btn btn-sm CustomButton" onClick={() => handleDelete(tarea)}><i className="bi bi-x"></i></button>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
 		</div>
 	);
 };
